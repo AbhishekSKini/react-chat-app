@@ -60,7 +60,8 @@ const LoginForm = ({projectID}) => {
 
     const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
 
-
+    try {
+      //not entering in the condition
       await axios.get('https://api.chatengine.io/chats', { headers: authObject });
   
       localStorage.setItem('username', username);
@@ -68,8 +69,10 @@ const LoginForm = ({projectID}) => {
 
       window.location.reload();
       setError('');
-  }
-
+    } catch (err) {
+      setError('Oops, incorrect credentials.');
+    }
+  };
 
   return (
     <div className="wrapper">
