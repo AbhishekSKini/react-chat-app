@@ -21,7 +21,11 @@ const ChatFeed = (props) =>{
             />
          ))
     }
-
+const logout=()=>{
+    console.log("Logout")
+    window.location.reload();
+    localStorage.clear();
+}
     const renderMessages = ()=>{
         console.log("Chat"+chat)
         const keys = Object.keys(messages);
@@ -57,8 +61,9 @@ const ChatFeed = (props) =>{
             <div className="chat-title-container">
              <div className="chat-title">{chat.title}</div>
              <div className="chat-subtitle">
-                    {chat.people.map((person)=> `${person.person.username}`)}
+              {chat.people.map((person)=>`${person.person.username}`)}
              </div>
+             <button className="logout-button" onClick={logout}>Logout</button>
             </div>
             {renderMessages()}
             <div style={{height: '100px'}} />

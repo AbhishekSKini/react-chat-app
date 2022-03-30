@@ -48,26 +48,28 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-// const projectID = '4a922e54-fa7b-4c7d-8632-7e41f01e5095';
+//const projectID = '4a922e54-fa7b-4c7d-8632-7e41f01e5095';
 
-const LoginForm = ({projectID}) => {
+const LoginForm = ({ProjectID}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("........"+ProjectID)
+    const authObject = { 'Project-ID': ProjectID, 'User-Name': username, 'User-Secret': password };
 
-    const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
-
-
+try{  console.log(authObject);
       await axios.get('https://api.chatengine.io/chats', { headers: authObject });
   
       localStorage.setItem('username', username);
       localStorage.setItem('password', password);
 
       window.location.reload();
-      setError('');
+  }catch(error){
+    setError('Oops wrong credentials')
+  }
   }
 
 
