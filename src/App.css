@@ -192,7 +192,12 @@
     padding: 0px 12px;
     height: 100%;
   }
-  
+  .logout-button{
+    background-color: #7554a0;
+    color: white;
+    border-radius: 7px;
+    padding: 5px;
+  }
   .send-button {
     height: 42px;
     background-color: white;

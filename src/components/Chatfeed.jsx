@@ -21,11 +21,11 @@ const ChatFeed = (props) =>{
             />
          ))
     }
-const logout=()=>{
-    console.log("Logout")
-    window.location.reload();
-    localStorage.clear();
-}
+    const logout=()=>{
+        console.log("Logout")
+        window.location.reload();
+        localStorage.clear();
+    }
     const renderMessages = ()=>{
         console.log("Chat"+chat)
         const keys = Object.keys(messages);
